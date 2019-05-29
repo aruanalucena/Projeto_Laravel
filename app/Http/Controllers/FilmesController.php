@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\filme;
 
 class FilmesController extends Controller
-{
+{   
+    public function _construct(){
+        $this->middleware('auth')->except('exibirTodos');
+    }
+    
+    
     public function   exibirTodos(){
         // $filmes = Filme::all();
         //$filmes = Filme::orderBy('title','desc')->get();
